@@ -1,0 +1,10 @@
+section {
+    padding: 60px 0; /* Ajustez la marge intérieure selon vos besoins */
+}
+
+/* Ajoutez ces styles pour éviter que le footer ne chevauche la section Services */
+.footer {
+    position: relative;
+    z-index: 1;
+    margin-top: -60px; /* Correspond à la marge intérieure de la section Services */
+}

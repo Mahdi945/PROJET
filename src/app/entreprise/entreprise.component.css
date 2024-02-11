@@ -1,0 +1,30 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f8f9fa;
+}
+
+.container {
+  max-width: 800px; 
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.about-us {
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 30px;
+  margin-top: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.about-us h2 {
+  color: #007bff;
+  font-size: 28px; /* Ajustez la taille de la police selon vos besoins */
+}
+
+.about-us p {
+  line-height: 1.6;
+  font-size: 18px; /* Ajustez la taille de la police selon vos besoins */
+}
