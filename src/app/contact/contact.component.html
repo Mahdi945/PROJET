@@ -1,107 +1,98 @@
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-" crossorigin="anonymous" />
-
 <div class="container mt-5">
   <div class="success-overlay" *ngIf="formSubmitted">
-    <div class="success-message">
-      <div class="checkmark"></div>
-      <p>Panne enregistrée</p>
-    </div>
+      <div class="success-message">
+          <div class="checkmark"></div>
+          <p>Panne enregistrée</p>
+      </div>
   </div>
 
-  <section class="form-section">
-    <form (ngSubmit)="onSubmit(submitForm.value)" #submitForm="ngForm" enctype="multipart/form-data">
-      <div class="form-row">
-        <div class="col-md-6">
-          <div class="form-group">
-            <label for="nom">Nom de société ou du Responsable:</label>
-            <input [(ngModel)]="nomSociete" type="text" id="nom" name="nomSociete" class="form-control" required>
-          </div>
-        </div>
-
-        <div class="col-md-6">
-          <div class="form-group">
-            <label for="telephone">Numéro de téléphone ou Adresse Email:</label>
-            <input  [(ngModel)]="NumOuEmail" type="tel" id="telephone" name="NumOuEmail" class="form-control" required>
-          </div>
-        </div>
-        <div class="col-md-6">
-          <div class="form-group">
-            <label for="typeService">Type de Machine :</label>
-            <div class="input-group">
-              <select  [(ngModel)]="typeMachine" id="typeService" name="typeMachine" class="form-control custom-select common-width" required>
-                <option value="" disabled selected>Choisissez un type de Machine</option>
-                <option >Tour CNC</option>
-                <option>Froiseuse CNC</option>
-                <option>Centre d'usinage</option>
+  <section class="form-section custom-background">
+      <form (ngSubmit)="onSubmit()" #submitForm="ngForm" enctype="multipart/form-data">
+          <div class="form-row">
+              <div class="col-md-6">
+                  <div class="form-group">
+                      <label for="nom">Nom de société ou du Responsable<span class="required">*</span>:</label>
+                      <input [(ngModel)]="nomSociete" type="text" id="nom" name="nomSociete" class="form-control" required>
+                  </div>
+               
+                  <div class="form-group">
+                      <label for="email">Adresse Email <span class="required">*</span>:</label>
+                      <input [(ngModel)]="email" type="email" id="email" name="email" class="form-control" required>
+                  </div>
+                  <div class="form-group">
                 
-               <option>Machine à bois routeur</option>
-                <option>Machine d'écoupelaser</option>
-                <option>Autre</option>
+                    <label for="typeService">Type de Machine <span class="required">*</span>:</label>
+                    <select [(ngModel)]="typeMachine" id="typeService" name="typeMachine" class="form-control custom-select common-width" required>
+                        <option value="" disabled selected>Choisissez un type de Machine</option>
+                        <option>Tour CNC</option>
+                        <option>Fraiseuse CNC</option>
+                        <option>Centre d'usinage</option>
+                        <option>Machine à bois routeur</option>
+                        <option>Machine d'équipement laser</option>
+                        <option>Autre</option>
+                    </select>
+                </div>
                 
+                
+          </div>
 
-              </select>
-              
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="telephone">Numéro de téléphone <span class="required">*</span>:</label>
+                  <input [(ngModel)]="telephone" type="tel" id="telephone" name="telephone" class="form-control" required>
+                </div>
+                <div class="form-group">
+                  <label for="adresse">Adresse du Société:</label>
+                  <input [(ngModel)]="adresseSociete" type="text" id="adresse" name="adresseSociete" class="form-control">
+                </div>
+                <div class="form-group">
+                  <label for="ref">Référence Machine <span class="required">*</span>:</label>
+                  <input [(ngModel)]="refMachine" type="text" id="ref" name="refMachine" class="form-control"  required>
+                </div> 
+              </div>
+              <div class="col-12">
+                <div class="form-group">
+                    <label for="description">Description de la Panne :</label>
+                    <textarea [(ngModel)]="descriptionPanne" id="description" name="descriptionPanne" class="form-control" rows="5"></textarea>
+                </div>
             </div>
-          </div>
-        </div>
+              
+                
+                
 
-        <div class="col-md-6">
-          <div class="form-group">
-            <label for="ref">Référence Machine:</label>
-            <input [(ngModel)]="refMachine" type="text" id="ref" name="refMachine" class="form-control" required>
-          </div>
+            <div class="col-md-12">
+                <button type="submit" class="btn btn-primary">Envoyer</button>
+            </div>
         </div>
-    
-        <div class="col-md-12">
-          <div class="form-group">
-            <label for="description">Description de la Panne :</label>
-            <textarea [(ngModel)]="DescriptionPanne" id="description" name="DescriptionPanne" class="form-control" rows="4" required></textarea>
-          </div>
-        </div>
-
-        <div class="col-md-12">
-          <div class="form-group">
-            <label for="photo">Photo du Panne :</label>
-            <input [(ngModel)]="photoPanne" type="file" id="photo" name="photoPanne " class="form-control-file">
-          </div><br>
-        </div> 
-      
-        <div class="col-md-12">
-          <button  type="submit" class="btn btn-primary">Envoyer</button>
-        </div>
-      </div>
     </form>
-  </section>
- 
-  <section class="contact-section">
+</section>
+
+<section class="contact-section">
     <h2>Contactez-nous</h2> <br> <br>
     <div class="row mb-4">
-      <div class="col-md-3 contact-info">
-          <a href="tel:+9898209018">
-              <img src="assets/tal.png" alt="Appeler" class="icon" height="50">
-             
-          </a>
-      </div>
-  
-      <div class="col-md-3 contact-info">
-          <a href="https://www.linkedin.com/in/cnc-tunisie-b411b5b9/?originalSubdomain=tn" target="_blank">
-              <img src="assets/link.png" alt="Compte LinkedIn" class="icon" height="50">
-           
-          </a>
-      </div>
-  
-      <div class="col-md-3 contact-info">
-          <a href="mailto:mongi.bey@gmail.com">
-              <img src="assets/gmail.png" alt="Email" class="icon" height="50">
-             
-          </a>
-      </div>
-  
-      <div class="col-md-3 contact-info">
-          <a href="https://www.facebook.com/maintenance.tn/" target="_blank">
-              <img src="assets/fb.png" alt="Facebook" class="facebook-icon" height="50">
-              
-             </a>
-      </div>
-  </div>
-  
+        <div class="col-md-3 contact-info">
+            <a href="tel:+9898209018">
+                <img src="assets/tal.png" alt="Appeler" class="icon" height="50">
+            </a>
+        </div>
+
+        <div class="col-md-3 contact-info">
+            <a href="https://www.linkedin.com/in/cnc-tunisie-b411b5b9/?originalSubdomain=tn" target="_blank">
+                <img src="assets/link.png" alt="Compte LinkedIn" class="icon" height="50">
+            </a>
+        </div>
+
+        <div class="col-md-3 contact-info">
+            <a href="mailto:mongi.bey@gmail.com">
+                <img src="assets/gmail.png" alt="Email" class="icon" height="50">
+            </a>
+        </div>
+
+        <div class="col-md-3 contact-info">
+            <a href="https://www.facebook.com/maintenance.tn/" target="_blank">
+                <img src="assets/fb.png" alt="Facebook" class="facebook-icon" height="50">
+            </a>
+        </div>
+    </div>
+</section>
+</div>

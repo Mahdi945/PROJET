@@ -1,5 +1,6 @@
-import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-contact',
@@ -11,45 +12,39 @@ export class ContactComponent {
   formSubmitted: boolean = false;
  
   nomSociete: string = '';
-  NumOuEmail: string = '';
+  telephone: string = '';
+  email: string = '';
+  adresseSociete: string = '';
   typeMachine: string = '';
   refMachine: string = '';
-  DescriptionPanne: string = '';
-  photoPanne: string = '';
+  descriptionPanne: string = '';
+ 
 
+  constructor(private http: HttpClient, private router: Router) { }
 
-  constructor(private http: HttpClient) { }
+  onSubmit() {
+    const formData = {
+        nomSociete: this.nomSociete,
+        telephone: this.telephone,
+        email: this.email,
+        adresseSociete: this.adresseSociete,
+        typeMachine: this.typeMachine,
+        refMachine: this.refMachine,
+        descriptionPanne: this.descriptionPanne
+    };
 
-  onSubmit(formData: {
-    nomSociete: string,
-    NumOuEmail: string,
-    typeMachine: string,
-    refMachine: string,
-    DescriptionPanne: string,
-    photoPanne: File  // Utilisez le type File pour les fichiers
-  }) {
-    console.log('Data before sending:', formData);
-  
-    const formDataToSend = new FormData();
-    formDataToSend.append('nomSociete', formData.nomSociete);
-    formDataToSend.append('NumOuEmail', formData.NumOuEmail);
-    formDataToSend.append('typeMachine', formData.typeMachine);
-    formDataToSend.append('refMachine', formData.refMachine);
-    formDataToSend.append('DescriptionPanne', formData.DescriptionPanne);
-    formDataToSend.append('photoPanne', formData.photoPanne);
-  
-    this.http.post<any>('http://localhost:3000/sendEmail', formDataToSend)
+    this.http.post<any>('http://localhost:3000/submitForm/ajout', formData)
       .subscribe(
         (response) => {
-          console.log('Response from server:', response);
+          console.log('Réponse du serveur:', response);
           this.formSubmitted = true;
           setTimeout(() => {
             this.formSubmitted = false;
-          }, 4000);
+            this.router.navigate(['/accueil']);
+          }, 3000);
         },
         (error) => {
-          console.log('Error from server:', error);
+          console.log('Erreur du serveur:', error);
         }
       );
-  }
-}  
+}}
