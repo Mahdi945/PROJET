@@ -33,7 +33,7 @@ export class ContactComponent {
         descriptionPanne: this.descriptionPanne
     };
 
-    this.http.post<any>('https://node-3-n4qo.onrender.com', formData)
+    this.http.post<any>('https://node-7-4zxw.onrender.com/submitForm/ajout', formData)
       .subscribe(
         (response) => {
           console.log('Réponse du serveur:', response);
