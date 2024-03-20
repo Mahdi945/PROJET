@@ -33,8 +33,7 @@ export class ContactComponent {
         descriptionPanne: this.descriptionPanne
     };
 
-    // Mettez à jour l'URL pour correspondre à l'URL de votre backend Vercel
-    this.http.post<any>('https://node-1-1g2f.onrender.com/submitForm/ajout', formData)
+    this.http.post<any>('https://node-3-n4qo.onrender.com/submitForm/ajout', formData)
       .subscribe(
         (response) => {
           console.log('Réponse du serveur:', response);
