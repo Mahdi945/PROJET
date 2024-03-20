@@ -33,7 +33,8 @@ export class ContactComponent {
         descriptionPanne: this.descriptionPanne
     };
 
-    this.http.post<any>('http://localhost:3000/submitForm/ajout', formData)
+    // Mettez à jour l'URL pour correspondre à l'URL de votre backend Vercel
+    this.http.post<any>('https://node-glqp-6jkghifg1-mahdis-projects-ccd0dc12.vercel.app/submitForm/ajout', formData)
       .subscribe(
         (response) => {
           console.log('Réponse du serveur:', response);
