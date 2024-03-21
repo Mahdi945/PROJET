@@ -32,8 +32,8 @@ export class ContactComponent {
         refMachine: this.refMachine,
         descriptionPanne: this.descriptionPanne
     };
-
-    this.http.post<any>('https://node-12-hzmt.onrender.com/submitForm/ajout', formData)
+   
+    this.http.post<any>('https://node-13.onrender.com/submitForm/ajout', formData)
       .subscribe(
         (response) => {
           console.log('Réponse du serveur:', response);
