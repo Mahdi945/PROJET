@@ -33,7 +33,7 @@ export class ContactComponent {
         descriptionPanne: this.descriptionPanne
     };
    
-    this.http.post<any>('https://node-13.onrender.com/submitForm/ajout', formData)
+    this.http.post<any>('/api/submitForm/ajout', formData) // Utilisation de l'URL relative pour le proxy inversé
       .subscribe(
         (response) => {
           console.log('Réponse du serveur:', response);
@@ -48,3 +48,4 @@ export class ContactComponent {
         }
       );
 }}
+
