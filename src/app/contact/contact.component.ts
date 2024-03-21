@@ -33,7 +33,7 @@ export class ContactComponent {
         descriptionPanne: this.descriptionPanne
     };
    
-    this.http.post<any>('https://127.0.0.1:3000/submitForm/ajout', formData)
+    this.http.post<any>('https://localhost:3000/submitForm/ajout', formData)
       .subscribe(
         (response) => {
           console.log('Réponse du serveur:', response);
