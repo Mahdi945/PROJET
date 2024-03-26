@@ -42,7 +42,7 @@ export class ContactComponent {
       return;
     }
 
-    this.http.post<any>('https://spice-gray-cough.glitch.me/submitForm/ajout', formData)
+    this.http.post<any>('http://localhost:3000/submitForm/ajout', formData)
       .subscribe(
         (response) => {
           console.log('Réponse du serveur:', response);
