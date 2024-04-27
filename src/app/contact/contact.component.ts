@@ -42,7 +42,7 @@ export class ContactComponent {
       return;
     }
 
-    this.http.post<any>('https://node-glqp-qs3w69q5z-mahdis-projects-ccd0dc12.vercel.app/submitForm/ajout', formData)
+    this.http.post<any>('https://node-glqp-qs3w69q5z-mahdis-projects-ccd0dc12.vercel.app', formData)
       .subscribe(
         (response) => {
           console.log('Réponse du serveur:', response);
