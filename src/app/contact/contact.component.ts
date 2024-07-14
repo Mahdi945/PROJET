@@ -42,7 +42,7 @@ export class ContactComponent {
       return;
     }
 
-    this.http.post<any>('https://node-glqp.vercel.app/submitForm', formData)
+    this.http.post<any>('https://node-glqp.vercel.app/submitForm/ajout', formData)
       .subscribe(
         (response) => {
           console.log('Réponse du serveur:', response);
