@@ -41,8 +41,8 @@ export class ContactComponent {
       console.log('Numéro de téléphone invalide.');
       return;
     }
-
-    this.http.post<any>('http://localhost:3000/submitForm/ajout', formData)
+    this.http.post<any>('https://node-glqp.vercel.app/submitForm/ajout', formData)
+  
       .subscribe(
         (response) => {
           console.log('Réponse du serveur:', response);
