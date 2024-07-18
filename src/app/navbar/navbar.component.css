@@ -112,7 +112,7 @@
 }
 
 .navbar-logo img {
-  width: 50px; /* Taille du logo */
+  width: 70px; /* Taille du logo */
   margin-right: 10px;
   animation: logo-bounce 2s infinite; /* Animation rebond */
 }
