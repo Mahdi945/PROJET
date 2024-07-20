@@ -8,7 +8,20 @@ import { Component } from '@angular/core';
 export class NavbarComponent {
 
  
+  isNavbarCollapsed = true;
 
+  toggleNavbar() {
+    this.isNavbarCollapsed = !this.isNavbarCollapsed;
+  }
+
+  closeNavbar() {
+    this.isNavbarCollapsed = true;
+  }
+  isOffcanvasOpen = false;
+
+  toggleOffcanvas() {
+    this.isOffcanvasOpen = !this.isOffcanvasOpen;
+  }
   constructor() { }
 
 

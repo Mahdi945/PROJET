@@ -1,41 +1,57 @@
+<!-- navbar.component.html -->
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <a class="navbar-brand" routerLink="/accueil">
     <img src="assets/z.png" alt="Logo CNC SERVICE" height="88">
   </a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+  <button class="navbar-toggler" type="button" (click)="toggleOffcanvas()">
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
-        <a class="nav-link" routerLink="/accueil" class="special">Accueil</a>
+        <a class="nav-link special" routerLink="/accueil">Accueil</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" routerLink="/entreprise" class="special">Entreprise</a>
+        <a class="nav-link special" routerLink="/entreprise">Entreprise</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" routerLink="/services" class="special">Services</a>
+        <a class="nav-link special" routerLink="/services">Services</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" routerLink="/contact" class="special">Contact</a>
+        <a class="nav-link special" routerLink="/contact">Contact</a>
       </li>
     </ul>
-    <ul class="navbar-nav">
-      <li class="nav-item">
-        <a href="https://www.linkedin.com/in/cnc-tunisie-b411b5b9/?originalSubdomain=tn" target="_blank" class="nav-link">
-          <img src="assets/link.png" alt="LinkedIn" height="30" width="30">
-        </a>
-      </li>
-      <li class="nav-item">
-        <a href="https://www.facebook.com/maintenance.tn/" target="_blank" class="nav-link">
-          <img src="assets/fb.png" alt="Facebook" height="30" width="30">
-        </a>
-      </li>
-      <li class="nav-item">
-        <a href="mailto:mongi.bey@gmail.com" target="_blank" class="nav-link">
-          <img src="assets/gm.png" alt="Gmail" height="30" width="30">
-        </a>
-      </li>
-    </ul>
+    <div class="navbar-icons ml-auto">
+      <a href="https://www.linkedin.com/in/cnc-tunisie-b411b5b9/?originalSubdomain=tn" target="_blank" class="nav-link">
+        <img src="assets/link.png" alt="LinkedIn" height="30" width="30">
+      </a>
+      <a href="https://www.facebook.com/maintenance.tn/" target="_blank" class="nav-link">
+        <img src="assets/fb.png" alt="Facebook" height="30" width="30">
+      </a>
+      <a href="mailto:mongi.bey@gmail.com" target="_blank" class="nav-link">
+        <img src="assets/gm.png" alt="Gmail" height="30" width="30">
+      </a>
+    </div>
   </div>
 </nav>
+
+<!-- Off-canvas menu -->
+<!-- Off-canvas menu -->
+<div class="offcanvas-menu" [class.active]="isOffcanvasOpen">
+  <button class="close-btn" (click)="toggleOffcanvas()">&times;</button>
+  <div class="offcanvas-icons">
+    <a href="https://www.linkedin.com/in/cnc-tunisie-b411b5b9/?originalSubdomain=tn" target="_blank" class="offcanvas-icon">
+      <img src="assets/link.png" alt="LinkedIn">
+    </a>
+    <a href="https://www.facebook.com/maintenance.tn/" target="_blank" class="offcanvas-icon">
+      <img src="assets/fb.png" alt="Facebook">
+    </a>
+    <a href="mailto:mongi.bey@gmail.com" target="_blank" class="offcanvas-icon">
+      <img src="assets/gm.png" alt="Gmail">
+    </a>
+  </div>
+  <a class="nav-link special" routerLink="/accueil" (click)="toggleOffcanvas()">Accueil</a>
+  <a class="nav-link special" routerLink="/entreprise" (click)="toggleOffcanvas()">Entreprise</a>
+  <a class="nav-link special" routerLink="/services" (click)="toggleOffcanvas()">Services</a>
+  <a class="nav-link special" routerLink="/contact" (click)="toggleOffcanvas()">Contact</a>
+</div>
